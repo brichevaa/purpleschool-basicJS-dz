@@ -1,30 +1,19 @@
 const arr = [1, 40, -5, 10, 0];
-const parameterOfSort = true;
 
-function sortArray(array, parameterOfSort) {
-   if (parameterOfSort) {
-      for (let i = 0; i < array.length; i++) {
-         for (let j = 0; j < array.length - 1 - i; j++) {
-            if (array[j] > array[j + 1]) {
-               const save = array[j];
-               array[j] = array[j + 1];
-               array[j + 1] = save;
-            }
+function sortArray(array, desc = false) {
+   for (let i = 0; i < array.length; i++) {
+      for (let j = i + 1; j < array.length; j++) {
+         const isExchange = desc ? array[i] > array[j] : array[i] < array[j];
+         if (isExchange) {
+            [array[i], array[j]] = [array[j], array[i]];
          }
       }
-      return array;
-   } else {
-      for (let i = array.length; i > 0; i--) {
-         for (let j = 0; j < array.length - 1; j++) {
-            if (array[j] < array[j + 1]) {
-               const save = array[j];
-               array[j] = array[j + 1];
-               array[j + 1] = save;
-            }
-         }
-      }
-      return array;
    }
+   return array;
 }
 
-console.log(sortArray(arr, false));
+console.log(arr);
+console.log(sortArray(arr));
+console.log(arr);
+console.log(sortArray(arr, true));
+console.log(arr);
