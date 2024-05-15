@@ -5,18 +5,15 @@ function cryptoPassword(word) {
    }
    return res;
 }
-console.log(cryptoPassword('password'));
+console.log(cryptoPassword('pasSworD')); // apSsowDr
 
 function checkPassword(modifiedWord, initialWord) {
-   let result = '';
-   for (let i = 0; i < modifiedWord.length; i += 2) {
-      result += modifiedWord[i + 1] + modifiedWord[i];
-   }
-   if (result === initialWord) {
-      return true;
-   } else {
+   // Проверка на "не пустые" пароли
+   if (!modifiedWord || !initialWord) {
       return false;
    }
+
+   return initialWord === cryptoPassword(modifiedWord); // true
 }
 
-console.log(checkPassword('apssowdr', 'password'));
+console.log(checkPassword('apSsowDr', 'pasSworD'));
