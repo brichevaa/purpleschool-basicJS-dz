@@ -1,21 +1,25 @@
-const arr = [1, 40, -5, 10, 0];
+const numbers = [1, 40, -5, 10, 0];
 
-function sortArray(array, desc = false) {
-   const array2 = [...array]; // копируем массив
-   console.log(array2);
-   for (let i = 0; i < array2.length; i++) {
-      for (let j = i + 1; j < array2.length; j++) {
-         const isExchange = desc ? array2[i] > array2[j] : array2[i] < array2[j];
+function orderTemplate(firstNumber, secondNumber, desc) {
+   if (!desc) {
+      return firstNumber > secondNumber;
+   }
+   return firstNumber < secondNumber;
+}
+
+function sortArray(incomingArray, desc = false) {
+   const array = [...incomingArray];
+   for (let i = 0; i < array.length; i++) {
+      for (let j = i + 1; j < array.length; j++) {
+         const isExchange = orderTemplate(array[i], array[j], desc);
          if (isExchange) {
-            [array2[i], array2[j]] = [array2[j], array2[i]];
+            [array[i], array[j]] = [array[j], array[i]];
          }
       }
    }
-   return array2;
+   return array;
 }
 
-console.log(arr);
-console.log(sortArray(arr));
-console.log(arr);
-console.log(sortArray(arr, true));
-console.log(arr);
+console.log(numbers);
+console.log('Отсортированный по возрастанию массив:', sortArray(numbers));
+console.log('Отсортированный по убыванию массив:', sortArray(numbers, true));
