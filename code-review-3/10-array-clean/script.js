@@ -1,10 +1,9 @@
 function arrayClean(arr, deleteArg) {
    const arrayFilter = [];
    for (let i = 0; i < arr.length; i++) {
-      if (deleteArg(arr[i])) {
-         continue;
+      if (!deleteArg(arr[i])) {
+         arrayFilter.push(arr[i]);
       }
-      arrayFilter.push(arr[i]);
    }
    return arrayFilter;
 }
