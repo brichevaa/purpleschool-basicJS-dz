@@ -3,9 +3,34 @@
    <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="style.css" />
       <title>Calc</title>
    </head>
    <body>
+      <div class="container">
+         <h2>Калькулятор</h2>
+         <div class="inputs">
+            <div>
+               <p>Первое число:</p>
+               <input type="number" class="num-one" />
+            </div>
+            <div>
+               <p>Второе число:</p>
+               <input type="number" class="num-two" />
+            </div>
+         </div>
+         <div class="buttons">
+            <div class="button">+</div>
+            <div class="button">-</div>
+            <div class="button">X</div>
+            <div class="button">/</div>
+            <div class="button">AC</div>
+         </div>
+         <div class="out">
+            <b>Итого:</b>
+            <span>0</span>
+         </div>
+      </div>
       <script src="script.js"></script>
    </body>
 </html>
